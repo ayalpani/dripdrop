@@ -44,9 +44,5 @@ export function useSubscribe(subscriptionId: string) {
 }
 
 export function notifyCallbacks(subscriptionId: string): void {
-  //   console.log("notifyCallbacks", {
-  //     appState,
-  //     subscriptionCallbacks: subscriptionCallbacks[subscriptionId],
-  //   });
   subscriptionCallbacks[subscriptionId]?.forEach((cb) => cb());
 }
