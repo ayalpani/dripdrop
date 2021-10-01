@@ -43,6 +43,6 @@ export function useSubscribe(subscriptionId: string) {
   }, [subscriptionId, callback]);
 }
 
-export function notifyCallbacks(subscriptionId: string): void {
+export function notifySubscribers(subscriptionId: string): void {
   subscriptionCallbacks[subscriptionId]?.forEach((cb) => cb());
 }
