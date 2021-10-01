@@ -31,7 +31,7 @@ function unregisterCallback(
 function useTriggerCallbackRef() {
   // define trigger function to rerender component that uses the useSubscribe* hooks
   const [, setTrigger] = useState(0);
-  return useRef(() => setTrigger((trigger) => trigger + 1)).current;
+  return useRef(() => setTrigger((trigger: number) => trigger + 1)).current;
 }
 
 export function useSubscribe(subscriptionId: string) {
