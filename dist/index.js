@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.notifyCallbacks = exports.useSubscribe = void 0;
+exports.notifySubscribers = exports.useSubscribe = void 0;
 const react_1 = require("react");
 const subscriptionCallbacks = {};
 function registerCallback(subscriptionId, callback) {
@@ -27,12 +27,8 @@ function useSubscribe(subscriptionId) {
     }, [subscriptionId, callback]);
 }
 exports.useSubscribe = useSubscribe;
-function notifyCallbacks(subscriptionId) {
+function notifySubscribers(subscriptionId) {
     var _a;
-    //   console.log("notifyCallbacks", {
-    //     appState,
-    //     subscriptionCallbacks: subscriptionCallbacks[subscriptionId],
-    //   });
     (_a = subscriptionCallbacks[subscriptionId]) === null || _a === void 0 ? void 0 : _a.forEach((cb) => cb());
 }
-exports.notifyCallbacks = notifyCallbacks;
+exports.notifySubscribers = notifySubscribers;
