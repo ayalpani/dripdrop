@@ -29,7 +29,7 @@ const appState = [
 ];
 ```
 
-3. Write subscriptions hooks for your state:
+3. Export subscriptions hooks for your state:
 
 ```ts
 export function useSubscribeTodoList(): Todo[] {
@@ -53,7 +53,7 @@ export function useSubscribeTodoIsDone(todoId: string): boolean | undefined {
 }
 ```
 
-4. Write actions for your state:
+4. Export actions for your state:
 
 ```ts
 export function actionAddTodo() {
@@ -82,7 +82,7 @@ export function actionDeleteTodo(todoId: string) {
 }
 ```
 
-5. Use the subscription hooks (see 3) and actions (see 4) in your React Components:
+5. Import and use the subscription hooks (see 3) and actions (see 4) inside your React Components:
 
 ```ts
 
