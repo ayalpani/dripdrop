@@ -8,6 +8,11 @@ type subscriptionCallbacksType = {
 
 const subscriptionCallbacks: subscriptionCallbacksType = {};
 
+// exported for testing only
+export const getSubscriptionCallbacksForTesting = () => {
+  return {...subscriptionCallbacks}
+}
+
 function registerCallback(
   subscriptionId: string,
   callback: QueryCallbackType
