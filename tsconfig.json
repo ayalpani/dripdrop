@@ -5,6 +5,7 @@
     "lib": ["dom", "es2017"],
     "module": "esnext",
     "target": "esnext",
+    "moduleResolution": "node"
   },
   "include": [
     "./jest-setup.ts",
