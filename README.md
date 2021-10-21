@@ -1,8 +1,8 @@
+[![Node.js CI](https://github.com/ayalpani/react-ivity/actions/workflows/node.js.yml/badge.svg)](https://github.com/ayalpani/react-ivity/actions/workflows/node.js.yml)
 # react-ivity
 
 > React & React Native Hooks for simple state management
 
-![CI/CD](https://github.com/dyarleniber/react-workflow-gh-actions/workflows/CI/CD/badge.svg)
 
 ## Install
 
