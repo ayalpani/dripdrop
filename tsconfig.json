@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "lib": ["dom", "es2017"],
@@ -9,6 +10,8 @@
   },
   "include": [
     "./jest-setup.ts",
+    "**/*.ts",
+    "**/*.tsx"
   ],
 
   "exclude": ["tests", "dist", "node_modules"]
