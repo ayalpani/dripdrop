@@ -7,7 +7,7 @@
     "target": "esnext",
   },
   "include": [
-    "./jest-setup.ts"
+    "./jest-setup.ts",
   ],
 
   "exclude": ["tests", "dist", "node_modules"]
