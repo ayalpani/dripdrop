@@ -2,6 +2,8 @@
 
 > React & React Native Hooks for simple state management
 
+![CI/CD](https://github.com/dyarleniber/react-workflow-gh-actions/workflows/CI/CD/badge.svg)
+
 ## Install
 
 ```
