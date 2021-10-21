@@ -11,7 +11,8 @@
   "include": [
     "./jest-setup.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "jest.config.ts"  
   ],
 
   "exclude": ["tests", "dist", "node_modules"]
