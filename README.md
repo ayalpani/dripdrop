@@ -25,9 +25,9 @@ export type AppState = {
   todos: Todo[];
 };
 
-const appState = [
+const appState: AppState = {
   todos: []
-];
+};
 ```
 
 3. Export subscriptions hooks for your state:
