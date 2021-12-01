@@ -10,6 +10,10 @@
 $ npm install react-ivity
 ```
 
+## Example Project
+
+=> https://github.com/ayalpani/react-ivity-example
+
 ## Usage
 
 1. Import the only two exported API methods:
