@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 export type QueryCallbackType = () => void;
 
@@ -10,8 +10,8 @@ const subscriptionCallbacks: subscriptionCallbacksType = {};
 
 // exported for testing only
 export const getSubscriptionCallbacksForTesting = () => {
-  return {...subscriptionCallbacks}
-}
+  return { ...subscriptionCallbacks };
+};
 
 function registerCallback(
   subscriptionId: string,
@@ -42,7 +42,7 @@ function useTriggerCallbackRef() {
 export function useSubscribe(subscriptionId: string) {
   const callback = useTriggerCallbackRef();
   // register and unregister trigger in registry
-  useEffect(() => {
+  useLayoutEffect(() => {
     registerCallback(subscriptionId, callback);
     return () => unregisterCallback(subscriptionId, callback);
   }, [subscriptionId, callback]);
