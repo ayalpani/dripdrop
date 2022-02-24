@@ -1,8 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.notifySubscribers = exports.useSubscribe = void 0;
+exports.notifySubscribers = exports.useSubscribe = exports.getSubscriptionCallbacksForTesting = void 0;
 const react_1 = require("react");
 const subscriptionCallbacks = {};
+// exported for testing only
+const getSubscriptionCallbacksForTesting = () => {
+    return { ...subscriptionCallbacks };
+};
+exports.getSubscriptionCallbacksForTesting = getSubscriptionCallbacksForTesting;
 function registerCallback(subscriptionId, callback) {
     if (!subscriptionCallbacks[subscriptionId]) {
         subscriptionCallbacks[subscriptionId] = [];
@@ -21,7 +26,7 @@ function useTriggerCallbackRef() {
 function useSubscribe(subscriptionId) {
     const callback = useTriggerCallbackRef();
     // register and unregister trigger in registry
-    (0, react_1.useEffect)(() => {
+    (0, react_1.useLayoutEffect)(() => {
         registerCallback(subscriptionId, callback);
         return () => unregisterCallback(subscriptionId, callback);
     }, [subscriptionId, callback]);
