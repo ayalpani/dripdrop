@@ -6,14 +6,9 @@
     "lib": ["dom", "es2017"],
     "module": "commonjs",
     "target": "es2019",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "outDir": "dist"
   },
-  "include": [
-    "./jest-setup.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "jest.config.ts"  
-  ],
-
-  "exclude": ["tests", "dist", "node_modules"]
+  "include": ["src"],
+  "exclude": ["tests", "dist", "node_modules", "**/*.test.*"]
 }
