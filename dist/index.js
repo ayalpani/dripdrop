@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.notifySubscribers = exports.useSubscribe = exports.getSubscriptionCallbacksForTesting = void 0;
+exports.notifySubscribers = exports.useSubscribe = exports.unregisterCallback = exports.registerCallback = exports.getSubscriptionCallbacksForTesting = void 0;
 const react_1 = require("react");
 const subscriptionCallbacks = {};
 // exported for testing only
@@ -14,10 +14,12 @@ function registerCallback(subscriptionId, callback) {
     }
     subscriptionCallbacks[subscriptionId].push(callback);
 }
+exports.registerCallback = registerCallback;
 function unregisterCallback(subscriptionId, callback) {
     var _a;
     subscriptionCallbacks[subscriptionId] = (_a = subscriptionCallbacks[subscriptionId]) === null || _a === void 0 ? void 0 : _a.filter((cb) => cb !== callback);
 }
+exports.unregisterCallback = unregisterCallback;
 function useTriggerCallbackRef() {
     // define trigger function to rerender component that uses the useSubscribe* hooks
     const [, setTrigger] = (0, react_1.useState)(0);
