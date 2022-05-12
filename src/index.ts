@@ -13,7 +13,7 @@ export const getSubscriptionCallbacksForTesting = () => {
   return { ...subscriptionCallbacks };
 };
 
-function registerCallback(
+export function registerCallback(
   subscriptionId: string,
   callback: QueryCallbackType
 ): void {
@@ -24,7 +24,7 @@ function registerCallback(
   subscriptionCallbacks[subscriptionId].push(callback);
 }
 
-function unregisterCallback(
+export function unregisterCallback(
   subscriptionId: string,
   callback: QueryCallbackType
 ): void {
@@ -48,6 +48,6 @@ export function useSubscribe(subscriptionId: string) {
   }, [subscriptionId, callback]);
 }
 
-export function notifySubscribers(subscriptionId: string): void {
+export function notifySubscribers(subscriptionId: string) {
   subscriptionCallbacks[subscriptionId]?.forEach((cb) => cb());
 }
