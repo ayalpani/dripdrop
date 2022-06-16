@@ -51,3 +51,10 @@ export function useSubscribe(subscriptionId: string) {
 export function notifySubscribers(subscriptionId: string) {
   subscriptionCallbacks[subscriptionId]?.forEach((cb) => cb());
 }
+
+// attach an api object to window: window.__react_ivity
+(window as any).__react_ivity = {
+  getSubscriptionCallbacks: () => {
+    return subscriptionCallbacks;
+  },
+};

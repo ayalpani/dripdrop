@@ -39,3 +39,9 @@ function notifySubscribers(subscriptionId) {
     (_a = subscriptionCallbacks[subscriptionId]) === null || _a === void 0 ? void 0 : _a.forEach((cb) => cb());
 }
 exports.notifySubscribers = notifySubscribers;
+// attach an api object to window: window.__react_ivity
+window.__react_ivity = {
+    getSubscriptionCallbacks: () => {
+        return subscriptionCallbacks;
+    },
+};
