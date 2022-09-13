@@ -1,14 +1,30 @@
 [![Node.js CI](https://github.com/ayalpani/react-ivity/actions/workflows/node.js.yml/badge.svg)](https://github.com/ayalpani/react-ivity/actions/workflows/node.js.yml)
+
 # react-ivity
 
-> React & React Native Hooks for simple state management
+> Manage State and AAAAAHHHHH... relax.
 
+![Manage State and Relax](docs/relax.png "Manage State and Relax")
 
 ## Install
 
 ```
 $ npm install react-ivity
 ```
+
+## Why?
+
+#### Yet Another State Management Library
+
+React Context, Redux, Zustand, MobX, Recoil, Valtio ... I had them all in projects big or small.
+
+#### react-ivity is...
+
+- Super tiny (&lt; 60 Lines Of Code) dependency-free Vanilla TS (👉 [jump right in](./src/index.ts))
+- Implements a simple Observer Pattern and it's core is easy to comprehend
+- Doesn't need React Context
+- Allows for super granular updates, only re-render if it's really needed
+-
 
 ## Example Project
 
@@ -30,7 +46,7 @@ export type AppState = {
 };
 
 const appState: AppState = {
-  todos: []
+  todos: [],
 };
 ```
 
@@ -142,6 +158,12 @@ const TodoDeleteButton = React.memo(({ todoId }: { todoId: string }) => {
   );
 });
 ```
+
+## Debugging
+
+To get a list of all subscriptions in your app, open the developer console and paste this:
+
+> \_\_react_ivity.getSubscriptionCallbacks()
 
 ## Maintainers
 
