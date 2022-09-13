@@ -1,17 +1,12 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
-export type QueryCallbackType = () => void;
+type QueryCallbackType = () => void;
 
 type subscriptionCallbacksType = {
   [subscriptionId: string]: QueryCallbackType[];
 };
 
 const subscriptionCallbacks: subscriptionCallbacksType = {};
-
-// exported for testing only
-export const getSubscriptionCallbacksForTesting = () => {
-  return { ...subscriptionCallbacks };
-};
 
 export function registerCallback(
   subscriptionId: string,
@@ -51,6 +46,11 @@ export function useSubscribe(subscriptionId: string) {
 export function notifySubscribers(subscriptionId: string) {
   subscriptionCallbacks[subscriptionId]?.forEach((cb) => cb());
 }
+
+// exported for testing only
+export const getSubscriptionCallbacksForTesting = () => {
+  return { ...subscriptionCallbacks };
+};
 
 // attach an api object to window: window.__react_ivity
 (window as any).__react_ivity = {
