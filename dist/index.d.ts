@@ -1,9 +1,9 @@
 declare type $QueryCallbackType = () => void;
-export declare function registerCallback(subscriptionId: string, callback: $QueryCallbackType): void;
-export declare function unregisterCallback(subscriptionId: string, callback: $QueryCallbackType): void;
-export declare function useSubscribe(subscriptionId: string): void;
-export declare function notifySubscribers(subscriptionId: string): void;
-export declare const reactivity: {
+declare function registerCallback(subscriptionId: string, callback: $QueryCallbackType): void;
+declare function unregisterCallback(subscriptionId: string, callback: $QueryCallbackType): void;
+declare function useSubscribe(subscriptionId: string): void;
+declare function notifySubscribers(subscriptionId: string): void;
+export declare const dripdrop: {
     registerCallback: typeof registerCallback;
     unregisterCallback: typeof unregisterCallback;
     useSubscribe: typeof useSubscribe;

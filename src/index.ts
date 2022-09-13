@@ -6,11 +6,11 @@ type $SubscriptionCallbacksType = {
   [subscriptionId: string]: $QueryCallbackType[];
 };
 
-// Center piece of react-ivity: a map of all registered subscription callbacks
+// Center piece of dripdrop: a map of all registered subscription callbacks
 const subscriptionCallbacks: $SubscriptionCallbacksType = {};
 
 // Used by useSubscribe react hook on mount. Can be called outside of react
-export function registerCallback(
+function registerCallback(
   subscriptionId: string,
   callback: $QueryCallbackType
 ): void {
@@ -22,7 +22,7 @@ export function registerCallback(
 }
 
 // Used by useSubscribe react hook on unmount. Can be called outside of react
-export function unregisterCallback(
+function unregisterCallback(
   subscriptionId: string,
   callback: $QueryCallbackType
 ): void {
@@ -40,7 +40,7 @@ function useTriggerCallbackRef() {
 
 // Subscribes to value and triggers React Component re-render when
 // a value change is notified
-export function useSubscribe(subscriptionId: string) {
+function useSubscribe(subscriptionId: string) {
   const callback = useTriggerCallbackRef();
   // register and unregister trigger in registry
   useLayoutEffect(() => {
@@ -50,12 +50,12 @@ export function useSubscribe(subscriptionId: string) {
 }
 
 // Call this after you have updated a value and want subscribers to know
-export function notifySubscribers(subscriptionId: string) {
+function notifySubscribers(subscriptionId: string) {
   subscriptionCallbacks[subscriptionId]?.forEach((cb) => cb());
 }
 
-// for more explicit use of the API
-export const reactivity = {
+// explicit use of the API
+export const dripdrop = {
   registerCallback,
   unregisterCallback,
   useSubscribe,
@@ -67,8 +67,8 @@ export const getSubscriptionCallbacksForTesting = () => {
   return { ...subscriptionCallbacks };
 };
 
-// attach an api object to window: window.__reactivity
-(window as any).__reactivity = {
+// attach an api object to window: window.__dripDrop
+(window as any).__dripdrop = {
   getSubscriptionCallbacks: () => {
     return subscriptionCallbacks;
   },

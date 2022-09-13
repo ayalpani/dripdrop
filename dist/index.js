@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSubscriptionCallbacksForTesting = exports.reactivity = exports.notifySubscribers = exports.useSubscribe = exports.unregisterCallback = exports.registerCallback = void 0;
+exports.getSubscriptionCallbacksForTesting = exports.dripdrop = void 0;
 const react_1 = require("react");
-// Center piece of react-ivity: a map of all registered subscription callbacks
+// Center piece of dripdrop: a map of all registered subscription callbacks
 const subscriptionCallbacks = {};
 // Used by useSubscribe react hook on mount. Can be called outside of react
 function registerCallback(subscriptionId, callback) {
@@ -11,13 +11,11 @@ function registerCallback(subscriptionId, callback) {
     }
     subscriptionCallbacks[subscriptionId].push(callback);
 }
-exports.registerCallback = registerCallback;
 // Used by useSubscribe react hook on unmount. Can be called outside of react
 function unregisterCallback(subscriptionId, callback) {
     var _a;
     subscriptionCallbacks[subscriptionId] = (_a = subscriptionCallbacks[subscriptionId]) === null || _a === void 0 ? void 0 : _a.filter((cb) => cb !== callback);
 }
-exports.unregisterCallback = unregisterCallback;
 // React Trigger Callback Hook
 function useTriggerCallbackRef() {
     // define trigger to re-render components that uses the useSubscribe* hooks
@@ -34,15 +32,13 @@ function useSubscribe(subscriptionId) {
         return () => unregisterCallback(subscriptionId, callback);
     }, [subscriptionId, callback]);
 }
-exports.useSubscribe = useSubscribe;
 // Call this after you have updated a value and want subscribers to know
 function notifySubscribers(subscriptionId) {
     var _a;
     (_a = subscriptionCallbacks[subscriptionId]) === null || _a === void 0 ? void 0 : _a.forEach((cb) => cb());
 }
-exports.notifySubscribers = notifySubscribers;
-// for more explicit use of the API
-exports.reactivity = {
+// explicit use of the API
+exports.dripdrop = {
     registerCallback,
     unregisterCallback,
     useSubscribe,
@@ -53,8 +49,8 @@ const getSubscriptionCallbacksForTesting = () => {
     return { ...subscriptionCallbacks };
 };
 exports.getSubscriptionCallbacksForTesting = getSubscriptionCallbacksForTesting;
-// attach an api object to window: window.__reactivity
-window.__reactivity = {
+// attach an api object to window: window.__dripDrop
+window.__dripdrop = {
     getSubscriptionCallbacks: () => {
         return subscriptionCallbacks;
     },
