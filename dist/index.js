@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSubscriptionCallbacksForTesting = exports.ivity = exports.notifySubscribers = exports.useSubscribe = exports.unregisterCallback = exports.registerCallback = void 0;
+exports.getSubscriptionCallbacksForTesting = exports.reactivity = exports.notifySubscribers = exports.useSubscribe = exports.unregisterCallback = exports.registerCallback = void 0;
 const react_1 = require("react");
 // Center piece of react-ivity: a map of all registered subscription callbacks
 const subscriptionCallbacks = {};
@@ -42,7 +42,7 @@ function notifySubscribers(subscriptionId) {
 }
 exports.notifySubscribers = notifySubscribers;
 // for more explicit use of the API
-exports.ivity = {
+exports.reactivity = {
     registerCallback,
     unregisterCallback,
     useSubscribe,
@@ -53,8 +53,8 @@ const getSubscriptionCallbacksForTesting = () => {
     return { ...subscriptionCallbacks };
 };
 exports.getSubscriptionCallbacksForTesting = getSubscriptionCallbacksForTesting;
-// attach an api object to window: window.__react_ivity
-window.__react_ivity = {
+// attach an api object to window: window.__reactivity
+window.__reactivity = {
     getSubscriptionCallbacks: () => {
         return subscriptionCallbacks;
     },

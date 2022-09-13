@@ -3,7 +3,7 @@ export declare function registerCallback(subscriptionId: string, callback: $Quer
 export declare function unregisterCallback(subscriptionId: string, callback: $QueryCallbackType): void;
 export declare function useSubscribe(subscriptionId: string): void;
 export declare function notifySubscribers(subscriptionId: string): void;
-export declare const ivity: {
+export declare const reactivity: {
     registerCallback: typeof registerCallback;
     unregisterCallback: typeof unregisterCallback;
     useSubscribe: typeof useSubscribe;

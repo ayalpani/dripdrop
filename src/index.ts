@@ -55,7 +55,7 @@ export function notifySubscribers(subscriptionId: string) {
 }
 
 // for more explicit use of the API
-export const ivity = {
+export const reactivity = {
   registerCallback,
   unregisterCallback,
   useSubscribe,
@@ -67,8 +67,8 @@ export const getSubscriptionCallbacksForTesting = () => {
   return { ...subscriptionCallbacks };
 };
 
-// attach an api object to window: window.__react_ivity
-(window as any).__react_ivity = {
+// attach an api object to window: window.__reactivity
+(window as any).__reactivity = {
   getSubscriptionCallbacks: () => {
     return subscriptionCallbacks;
   },
