@@ -67,9 +67,9 @@ export const getSubscriptionCallbacksForTesting = () => {
   return { ...subscriptionCallbacks };
 };
 
-// attach an api object to window: window.__dripDrop
-(window as any).__dripdrop = {
-  getSubscriptionCallbacks: () => {
-    return subscriptionCallbacks;
-  },
-};
+// // attach an api object to window: window.__dripDrop
+// (window as any).__dripdrop = {
+//   getSubscriptionCallbacks: () => {
+//     return subscriptionCallbacks;
+//   },
+// };

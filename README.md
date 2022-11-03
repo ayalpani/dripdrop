@@ -23,15 +23,10 @@ React Context, Redux, Zustand, MobX, Recoil, Valtio ... I tried them all in proj
 - ... consists of &lt; 60 lines of dependency-free Vanilla TS code. 👉 [jump right in](./src/index.ts)
 - ... implements a simple **observer pattern** and is easy to comprehend
 
-## A simple example:
+## Example:
 
-https://codesandbox.io/s/dripdrop-counter-example-1gshs3
-
-## Debugging
-
-To get a list of all subscriptions in your app, open the developer console and paste this:
-
-> \_\_dripdrop.getSubscriptionCallbacks()
+- [Simple Counter Example on CodeSandbox](https://codesandbox.io/s/dripdrop-counter-example-1gshs3)
+- [Real Life Example](https://github.com/ayalpani/lisd5/): [Here](https://github.com/ayalpani/lisd5/tree/main/src/appState), [here]()
 
 ## Maintainers
 
