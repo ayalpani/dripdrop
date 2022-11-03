@@ -61,15 +61,3 @@ export const dripdrop = {
   useSubscribe,
   notifySubscribers,
 };
-
-// exported for testing only
-export const getSubscriptionCallbacksForTesting = () => {
-  return { ...subscriptionCallbacks };
-};
-
-// // attach an api object to window: window.__dripDrop
-// (window as any).__dripdrop = {
-//   getSubscriptionCallbacks: () => {
-//     return subscriptionCallbacks;
-//   },
-// };
